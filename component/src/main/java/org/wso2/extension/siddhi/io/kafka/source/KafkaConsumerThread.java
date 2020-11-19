@@ -236,7 +236,7 @@ public class KafkaConsumerThread implements Runnable {
                     try {
                         consumerLock.lock();
                         if (!records.isEmpty()) {
-                            consumer.commitAsync();
+                            consumer.commitSync();
                         }
                     } catch (CommitFailedException e) {
                         LOG.error("Kafka commit failed for topic kafka_result_topic", e);
